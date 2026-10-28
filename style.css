@@ -1,0 +1,996 @@
+
+/* ==================================================
+   MEDFLOW — SISTEMA DE ANAMNESE FISIOTERAPÊUTICA
+   Folha de estilos principal
+   ================================================== */
+
+/* 1. FONTES E VARIÁVEIS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --blue: #1767b1;
+    --blue-dark: #104d89;
+    --blue-soft: #eaf4ff;
+
+    --ink: #18283c;
+    --muted: #708095;
+
+    --line: #e3eaf1;
+    --bg: #f5f8fc;
+    --white: #ffffff;
+
+    --green: #16815d;
+    --red: #b42318;
+    --red-soft: #fff0ef;
+
+    --radius: 14px;
+    --shadow: 0 2px 8px rgba(24, 40, 60, 0.03);
+}
+
+/* 2. RESET E CONFIGURAÇÕES GERAIS */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #6aa9e6;
+    outline-offset: 2px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* 3. ESTRUTURA PRINCIPAL */
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
+    min-width: 0;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 31px clamp(20px, 4vw, 54px) 20px;
+}
+
+/* 4. MENU LATERAL */
+.sidebar {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+
+    width: 245px;
+    padding: 27px 17px;
+
+    background: var(--white);
+    border-right: 1px solid var(--line);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 9px 34px;
+}
+
+.brand-icon {
+    display: grid;
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+    background: var(--blue);
+    color: var(--white);
+
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.brand strong {
+    display: block;
+    font-size: 19px;
+    letter-spacing: -0.5px;
+}
+
+.brand small {
+    display: block;
+    margin-top: 4px;
+
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.sidebar nav {
+    display: grid;
+    gap: 7px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 13px 14px;
+
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #64758a;
+
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-link span {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: var(--blue-soft);
+    color: var(--blue);
+}
+
+.side-note {
+    margin-top: auto;
+    padding: 14px 10px;
+
+    border-top: 1px solid var(--line);
+
+    color: #92a0b1;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+/* 5. CABEÇALHO */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-bottom: 26px;
+}
+
+.eyebrow {
+    margin: 0 0 7px;
+
+    color: #7c8da2;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.topbar h1 {
+    margin: 0;
+
+    font-size: 27px;
+    letter-spacing: -0.8px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 12px;
+
+    border: 1px solid var(--line);
+    border-radius: 30px;
+    background: var(--white);
+
+    color: #5b6c80;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.status i {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+    background: #21a574;
+}
+
+/* 6. NAVEGAÇÃO ENTRE TELAS */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* 7. BANNER DE BOAS-VINDAS */
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    min-height: 190px;
+    padding: 29px 32px;
+
+    overflow: hidden;
+    border-radius: 17px;
+
+    background: linear-gradient(115deg, #1767b1, #368dd2);
+    color: var(--white);
+}
+
+.welcome h2 {
+    margin: 7px 0 10px;
+
+    font-size: 26px;
+    letter-spacing: -0.8px;
+}
+
+.welcome p:not(.eyebrow) {
+    max-width: 500px;
+    margin: 0;
+
+    color: #e2f1ff;
+    line-height: 1.7;
+}
+
+.eyebrow.light {
+    color: #c5e4ff;
+}
+
+.welcome-mark {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+
+    width: 115px;
+    height: 115px;
+    margin-right: 20px;
+
+    border: 1px solid #ffffff33;
+    border-radius: 35px;
+    background: #ffffff1b;
+
+    font-size: 62px;
+    font-weight: 800;
+
+    transform: rotate(8deg);
+}
+
+/* 8. CARDS DE ESTATÍSTICAS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+
+    margin: 22px 0 33px;
+}
+
+.stat-card,
+.panel,
+.form-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+}
+
+.stat-card {
+    padding: 20px 21px;
+}
+
+.stat-card span,
+.stat-card small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.stat-card strong {
+    display: block;
+    margin: 13px 0 6px;
+
+    font-size: 30px;
+    letter-spacing: -1px;
+    overflow-wrap: anywhere;
+}
+
+.stat-card small {
+    font-size: 10px;
+}
+
+/* 9. TÍTULOS DAS SEÇÕES */
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin: 27px 0 15px;
+}
+
+.section-heading h2 {
+    margin: 0 0 6px;
+
+    font-size: 18px;
+    letter-spacing: -0.4px;
+}
+
+.section-heading p {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* 10. ACESSO RÁPIDO */
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.quick-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+
+    min-height: 150px;
+    padding: 20px;
+
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--ink);
+
+    text-align: left;
+    cursor: pointer;
+
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.quick-card:hover {
+    transform: translateY(-1px);
+    border-color: #9cc8f0;
+}
+
+.quick-icon {
+    display: grid;
+    place-items: center;
+
+    width: 35px;
+    height: 35px;
+
+    border-radius: 10px;
+    background: var(--blue-soft);
+    color: var(--blue);
+
+    font-size: 19px;
+}
+
+.quick-card strong {
+    font-size: 13px;
+}
+
+.quick-card small {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.quick-card b {
+    position: absolute;
+    top: 22px;
+    right: 18px;
+
+    color: var(--blue);
+    font-size: 18px;
+}
+
+/* 11. PAINÉIS */
+.panel {
+    margin-top: 24px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.panel .section-heading {
+    margin-top: 0;
+}
+
+.empty-state {
+    padding: 28px;
+
+    color: #8796a8;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* 12. FORMULÁRIOS */
+.form-card {
+    padding: 25px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 19px;
+}
+
+.form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    color: #42546a;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-grid .span-2 {
+    grid-column: span 2;
+}
+
+/* 13. CAMPOS DE ENTRADA */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 13px;
+
+    border: 1px solid #dce4ed;
+    border-radius: 8px;
+    outline: none;
+
+    background: var(--white);
+    color: var(--ink);
+
+    font-size: 13px;
+    font-weight: 400;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #6aa9e6;
+    box-shadow: 0 0 0 3px #1767b114;
+}
+
+textarea {
+    resize: vertical;
+    line-height: 1.55;
+}
+
+.form-grid input,
+.form-grid select {
+    min-height: 43px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9aa7b6;
+}
+
+/* 14. BOTÕES */
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 23px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 11px 16px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn.primary {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.btn.primary:hover {
+    background: var(--blue-dark);
+}
+
+.btn.secondary {
+    border-color: #dce4ed;
+    background: var(--white);
+    color: #53657a;
+}
+
+.btn.secondary:hover {
+    border-color: #b9c9da;
+    background: #f8fafc;
+}
+
+.btn.small {
+    padding: 8px 11px;
+    font-size: 11px;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.text-button {
+    padding: 5px 0;
+
+    border: 0;
+    background: transparent;
+    color: var(--blue);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.text-button:hover {
+    color: var(--blue-dark);
+}
+
+/* 15. BOTÃO EXCLUIR PACIENTE */
+.btn-delete {
+    border: 1px solid #ffd0cc;
+    background: var(--red-soft);
+    color: var(--red);
+
+    white-space: nowrap;
+}
+
+.btn-delete:hover {
+    border-color: var(--red);
+    background: var(--red);
+    color: var(--white);
+}
+
+.btn-delete:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* 16. PESQUISA */
+.search {
+    display: block;
+    max-width: 390px;
+    margin: 0 0 16px;
+}
+
+/* 17. TABELAS */
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+th {
+    background: #f8fafc;
+
+    color: #7b8a9d;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+th,
+td {
+    padding: 13px 12px;
+    border-bottom: 1px solid #edf1f5;
+    vertical-align: middle;
+}
+
+td {
+    color: #4b5d72;
+}
+
+td strong {
+    color: var(--ink);
+}
+
+tbody tr:hover {
+    background: #fbfdff;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* Evita que os botões da tabela fiquem espremidos. */
+td:last-child {
+    white-space: nowrap;
+}
+
+/* 18. HISTÓRICO DE ANAMNESES */
+.history-list {
+    display: grid;
+    gap: 14px;
+}
+
+.history-card {
+    padding: 19px;
+
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--white);
+}
+
+.history-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.record-id {
+    color: var(--blue);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.history-top h3 {
+    margin: 6px 0;
+    font-size: 16px;
+}
+
+.history-top small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.history-field {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid #edf1f5;
+}
+
+.history-field strong,
+.detail-grid strong {
+    color: #53657a;
+    font-size: 11px;
+}
+
+.history-field p,
+.detail-grid p {
+    margin: 6px 0 0;
+
+    color: #34465b;
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+details {
+    margin-top: 15px;
+    color: var(--blue);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+details summary {
+    font-weight: 600;
+}
+
+details .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+
+    margin-top: 15px;
+}
+
+/* 19. MENSAGENS DO SISTEMA */
+.notice {
+    margin-bottom: 17px;
+    padding: 13px 16px;
+
+    border-radius: 9px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.notice.success {
+    border: 1px solid #bde9d3;
+    background: #e7f7ef;
+    color: #176c4e;
+}
+
+.notice.error {
+    border: 1px solid #ffd0cc;
+    background: var(--red-soft);
+    color: #9d2c24;
+}
+
+/* 20. RODAPÉ */
+footer {
+    padding: 30px 0 10px;
+
+    color: #9aa6b5;
+    font-size: 10px;
+    text-align: center;
+}
+
+/* ==================================================
+   21. RESPONSIVIDADE — TABLETS
+   ================================================== */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 205px;
+    }
+
+    .stats,
+    .quick-grid {
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .welcome-mark {
+        margin-right: 0;
+    }
+
+    .main {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+}
+
+/* ==================================================
+   22. RESPONSIVIDADE — CELULARES
+   ================================================== */
+@media (max-width: 700px) {
+    .app {
+        display: block;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 15px;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+        padding: 0 5px 15px;
+    }
+
+    .sidebar nav {
+        display: flex;
+        gap: 5px;
+
+        overflow-x: auto;
+    }
+
+    .nav-link {
+        flex-shrink: 0;
+        padding: 10px;
+        white-space: nowrap;
+    }
+
+    .side-note {
+        display: none;
+    }
+
+    .main {
+        padding: 22px 15px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+    }
+
+    .topbar h1 {
+        font-size: 23px;
+    }
+
+    .status {
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    .welcome {
+        min-height: 160px;
+        padding: 22px;
+    }
+
+    .welcome h2 {
+        font-size: 21px;
+    }
+
+    .welcome-mark {
+        display: none;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card strong {
+        margin: 8px 0;
+    }
+
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-card {
+        min-height: 120px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid .span-2 {
+        grid-column: span 1;
+    }
+
+    .form-card,
+    .panel {
+        padding: 16px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+    }
+
+    .history-top {
+        flex-direction: column;
+    }
+
+    details .detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions .btn {
+        flex: 1;
+    }
+
+    th,
+    td {
+        padding: 11px 9px;
+    }
+}
+
+/* ==================================================
+   23. ACESSIBILIDADE — MOVIMENTO REDUZIDO
+   ================================================== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* ==================================================
+   24. IMPRESSÃO
+   ================================================== */
+@media print {
+    body {
+        background: var(--white);
+        color: #000;
+    }
+
+    .sidebar,
+    .topbar,
+    .section-heading button,
+    .form-card,
+    .search,
+    footer,
+    .notice {
+        display: none !important;
+    }
+
+    .main {
+        max-width: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .page {
+        display: none !important;
+    }
+
+    #page-history {
+        display: block !important;
+    }
+
+    .panel,
+    .history-card {
+        margin: 0 0 20px;
+        padding: 0;
+
+        border: 0;
+        box-shadow: none;
+    }
+
+    .history-card {
+        break-inside: avoid;
+    }
+
+    .history-top .btn {
+        display: none !important;
+    }
+
+    details .detail-grid {
+        display: grid;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+}
